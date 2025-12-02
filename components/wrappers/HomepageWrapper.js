@@ -188,9 +188,8 @@ const HomepageWrapper = () => {
                 crossOrigin="anonymous"
                 style={{
                   width: "100%",
-                  height: "100%",
-                  maxHeight: 120,
-                  objectFit: "cover",
+                  height: 100,
+                  objectFit: "contain",
                 }}
               />
 

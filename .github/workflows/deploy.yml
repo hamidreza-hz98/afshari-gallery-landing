@@ -1,0 +1,54 @@
+name: 🚀 Deploy Landing
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Build project
+        run: npm run build
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Deploy build files to server
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
+          rsync -avz --delete \
+          --exclude='.next/cache' \
+          --exclude='node_modules' \
+          $(ls -d .next package*.json public next.config.js 2>/dev/null || echo "") \
+          ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/var/www/landing/
+
+      - name: Restart app via PM2
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
+          cd /var/www/landing
+          npm ci --omit=dev --legacy-peer-deps
+          PORT=3000 pm2 describe afshari-landing > /dev/null 2>&1
+          if [ $? -eq 0 ]; then
+            pm2 restart afshari-landing
+          else
+            PORT=3000 pm2 start npm --name afshari-landing -- start
+          fi
+          pm2 save
+          EOF
