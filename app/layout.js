@@ -15,7 +15,7 @@ async function getDefaultSeo() {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/settings/seo`,
       {
-        cache: "no-store",
+        next: { revalidate: 60 }
       }
     );
 
