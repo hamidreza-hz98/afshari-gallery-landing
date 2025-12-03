@@ -8,6 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     steps:
       - name: Checkout code
@@ -24,31 +25,47 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Setup SSH
+      - name: Setup SSH agent
         uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Deploy build files to server
+      - name: Sync landing files to server
         run: |
-          mkdir -p ~/.ssh
           ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
-          rsync -avz --delete \
-          --exclude='.next/cache' \
-          --exclude='node_modules' \
-          $(ls -d .next package*.json public next.config.js 2>/dev/null || echo "") \
-          ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/var/www/landing/
 
-      - name: Restart app via PM2
+          rsync -avz --delete \
+            --exclude=".next/cache" \
+            --exclude="node_modules" \
+            $(ls -d .next package*.json public next.config.js 2>/dev/null || echo "") \
+            ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/var/www/afshari-gallery/landing/
+
+      - name: Restart landing with PM2
+        shell: bash
         run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
-          cd /var/www/landing
-          npm ci --omit=dev --legacy-peer-deps
-          PORT=3000 pm2 describe afshari-landing > /dev/null 2>&1
-          if [ $? -eq 0 ]; then
-            pm2 restart afshari-landing
-          else
-            PORT=3000 pm2 start npm --name afshari-landing -- start
-          fi
-          pm2 save
+          ssh -T \
+            -o StrictHostKeyChecking=no \
+            -o ServerAliveInterval=30 \
+            -o ServerAliveCountMax=5 \
+            ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
+            set -e
+
+            echo "📁 Moving to landing directory..."
+            cd /var/www/afshari-gallery/landing
+
+            echo "📦 Installing prod dependencies..."
+            npm ci --omit=dev --legacy-peer-deps
+
+            if pm2 describe afshari-landing > /dev/null 2>&1; then
+              echo "🔄 Restarting existing PM2 process..."
+              PORT=3001 pm2 restart afshari-landing
+            else
+              echo "🚀 Starting new PM2 process..."
+              PORT=3001 pm2 start npm --name afshari-landing -- start
+            fi
+
+            pm2 save
+
+            echo "✅ landing DEPLOY SUCCESSFUL"
+            exit
           EOF
