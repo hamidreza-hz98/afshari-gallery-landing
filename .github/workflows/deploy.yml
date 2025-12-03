@@ -58,10 +58,10 @@ jobs:
 
             if pm2 describe afshari-landing > /dev/null 2>&1; then
               echo "🔄 Restarting existing PM2 process..."
-              PORT=3001 pm2 restart afshari-landing
+              PORT=3000 pm2 restart afshari-landing
             else
               echo "🚀 Starting new PM2 process..."
-              PORT=3001 pm2 start npm --name afshari-landing -- start
+              PORT=3000 pm2 start npm --name afshari-landing -- start
             fi
 
             pm2 save
