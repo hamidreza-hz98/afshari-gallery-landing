@@ -53,7 +53,7 @@ export default function MobileBottomNav() {
     );
   };
 
-  if(!cart){
+  if(!cart?.products || !cart?.products?.length === 0){
     return <Loader />
   }
 

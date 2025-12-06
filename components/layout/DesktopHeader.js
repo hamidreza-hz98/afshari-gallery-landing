@@ -51,7 +51,7 @@ export default function DesktopHeader() {
     }
   };
 
-  if (!categories || !general || !cart) {
+  if (!categories || !general || !cart?.products || !cart?.products?.length === 0) {
     return <Loader />;
   }
 
