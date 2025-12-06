@@ -2,9 +2,9 @@ import PaymentResultPageWrapper from '@/components/wrappers/PaymentResultPageWra
 import React from 'react'
 
 export const metadata = {
-  title: "نتیجه پرداخت - فروشگاه گالری ساعت افشاری",
-  description: "نمایش نتیجه تراکنش و پرداخت مشتری در فروشگاه گالری ساعت افشاری.",
-  keywords: "پرداخت, نتیجه تراکنش, فروشگاه گالری ساعت افشاری, ساعت, نمایندگی رسمی",
+  title: "نتیجه پرداخت - فروشگاه گالری ساعت Vinesh",
+  description: "نمایش نتیجه تراکنش و پرداخت مشتری در فروشگاه گالری ساعت Vinesh.",
+  keywords: "پرداخت, نتیجه تراکنش, فروشگاه گالری ساعت Vinesh, ساعت, نمایندگی رسمی",
   robots: "noindex, nofollow",
 };
 

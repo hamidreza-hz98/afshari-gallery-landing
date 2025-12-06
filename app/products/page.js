@@ -2,9 +2,9 @@ import ProductsOverviewPageWrapper from '@/components/wrappers/ProductsOverviewP
 import React from 'react'
 
 export const metadata = {
-  title: "محصولات - فروشگاه گالری ساعت افشاری",
-  description: "مرور کلی محصولات فروشگاه گالری ساعت افشاری، نمایندگی رسمی ساعت‌های برند روز.",
-  keywords: "محصولات, فروشگاه گالری ساعت افشاری, ساعت, برند روز, نمایندگی رسمی",
+  title: "محصولات - فروشگاه گالری ساعت Vinesh",
+  description: "مرور کلی محصولات فروشگاه گالری ساعت Vinesh، نمایندگی رسمی ساعت‌های برند روز.",
+  keywords: "محصولات, فروشگاه گالری ساعت Vinesh, ساعت, برند روز, نمایندگی رسمی",
   robots: "noindex, nofollow",
 };
 

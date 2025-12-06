@@ -39,7 +39,7 @@ const FaqPageWrapper = () => {
       ]}
     >
      
-        <Typography my={2} variant="h1">سوالات متداول گالری ساعت افشاری</Typography>
+        <Typography my={2} variant="h1">سوالات متداول گالری ساعت Vinesh</Typography>
 
         {faq.map((item, index) => (
           <Accordion

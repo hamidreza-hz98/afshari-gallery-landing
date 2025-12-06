@@ -2,9 +2,9 @@ import FaqPageWrapper from '@/components/wrappers/FaqPageWrapper'
 import React from 'react'
 
 export const metadata = {
-  title: "سوالات متداول - فروشگاه گالری ساعت افشاری",
-  description: "پرسش و پاسخ‌های متداول مشتریان فروشگاه گالری ساعت افشاری درباره محصولات و خدمات.",
-  keywords: "سوالات متداول, FAQ, فروشگاه گالری ساعت افشاری, ساعت, نمایندگی رسمی",
+  title: "سوالات متداول - فروشگاه گالری ساعت Vinesh",
+  description: "پرسش و پاسخ‌های متداول مشتریان فروشگاه گالری ساعت Vinesh درباره محصولات و خدمات.",
+  keywords: "سوالات متداول, FAQ, فروشگاه گالری ساعت Vinesh, ساعت, نمایندگی رسمی",
   robots: "noindex, nofollow",
 };
 

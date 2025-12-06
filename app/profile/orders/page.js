@@ -2,9 +2,9 @@ import CustomerOrdersOverviewPageWrapper from '@/components/wrappers/CustomerOrd
 import React from 'react'
 
 export const metadata = {
-  title: "سفارش‌های من - فروشگاه گالری ساعت افشاری",
-  description: "مشاهده و مدیریت سفارش‌های ثبت شده مشتری در فروشگاه گالری ساعت افشاری.",
-  keywords: "سفارش‌ها, پروفایل, فروشگاه گالری ساعت افشاری, ساعت, نمایندگی رسمی",
+  title: "سفارش‌های من - فروشگاه گالری ساعت Vinesh",
+  description: "مشاهده و مدیریت سفارش‌های ثبت شده مشتری در فروشگاه گالری ساعت Vinesh.",
+  keywords: "سفارش‌ها, پروفایل, فروشگاه گالری ساعت Vinesh, ساعت, نمایندگی رسمی",
   robots: "noindex, nofollow",
 };
 

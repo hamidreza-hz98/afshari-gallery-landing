@@ -26,7 +26,7 @@ async function getDefaultSeo() {
 
     return {
       title: data.title || "امریان واچ",
-      description: data.description || "فروشگاه اینترنتی گالری ساعت افشاری",
+      description: data.description || "فروشگاه اینترنتی گالری ساعت Vinesh",
       keywords: data.keywords || "",
       robots:
         // data.robots ||

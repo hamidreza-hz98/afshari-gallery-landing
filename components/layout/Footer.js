@@ -283,7 +283,7 @@ export default function Footer() {
           }}
         >
           <Typography variant="body2" color="grey.500">
-            © تمامی حقوق برای گالری ساعت افشاری محفوظ است. Powered By <Link href="https://www.vinesh-tech.com/" target="_blank" > Vinesh Tech </Link>
+            © تمامی حقوق برای گالری ساعت Vinesh محفوظ است. Powered By <Link href="https://www.vinesh-tech.com/" target="_blank" > Vinesh Tech </Link>
           </Typography>
         </Box>
       </Container>

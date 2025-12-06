@@ -2,9 +2,9 @@ import ContactPageWrapper from '@/components/wrappers/ContactPageWrapper'
 import React from 'react'
 
 export const metadata = {
-  title: "تماس با ما - فروشگاه گالری ساعت افشاری",
-  description: "راه‌های ارتباط با فروشگاه گالری ساعت افشاری، پشتیبانی، ارسال نظرات و پیشنهادات شما.",
-  keywords: "تماس با ما, پشتیبانی, فروشگاه گالری ساعت افشاری, ساعت, نمایندگی رسمی",
+  title: "تماس با ما - فروشگاه گالری ساعت Vinesh",
+  description: "راه‌های ارتباط با فروشگاه گالری ساعت Vinesh، پشتیبانی، ارسال نظرات و پیشنهادات شما.",
+  keywords: "تماس با ما, پشتیبانی, فروشگاه گالری ساعت Vinesh, ساعت, نمایندگی رسمی",
 };
 
 

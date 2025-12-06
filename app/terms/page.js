@@ -2,9 +2,9 @@ import TermsPageWrapper from '@/components/wrappers/TermsPageWrapper'
 import React from 'react'
 
 export const metadata = {
-  title: "قوانین و شرایط استفاده - فروشگاه گالری ساعت افشاری",
-  description: "قوانین، مقررات و شرایط استفاده از وبسایت و خدمات فروشگاه گالری ساعت افشاری.",
-  keywords: "قوانین, شرایط استفاده, فروشگاه گالری ساعت افشاری, نمایندگی رسمی, برند روز",
+  title: "قوانین و شرایط استفاده - فروشگاه گالری ساعت Vinesh",
+  description: "قوانین، مقررات و شرایط استفاده از وبسایت و خدمات فروشگاه گالری ساعت Vinesh.",
+  keywords: "قوانین, شرایط استفاده, فروشگاه گالری ساعت Vinesh, نمایندگی رسمی, برند روز",
   robots: "noindex, nofollow",
 };
 

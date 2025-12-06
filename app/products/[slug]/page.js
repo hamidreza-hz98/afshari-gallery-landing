@@ -31,7 +31,7 @@ async function fetchSeoData(slug) {
         description: seo.ogDescription || seo.description,
         url: seo.canonical,
         images: seo.ogImage ? [`${baseUrl}${seo.ogImage.path}`] : [],
-        siteName: "گالری ساعت افشاری",
+        siteName: "گالری ساعت Vinesh",
         type: "website",
       },
       twitter: {

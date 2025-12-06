@@ -68,7 +68,7 @@ const AboutPageWrapper = () => {
           color={theme.palette.primary.main}
           mb={2}
         >
-          درباره ی فروشگاه گالری ساعت افشاری
+          درباره ی فروشگاه گالری ساعت Vinesh
         </Typography>
 
         <div dangerouslySetInnerHTML={{ __html: about.description }} />

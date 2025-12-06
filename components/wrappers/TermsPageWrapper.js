@@ -38,7 +38,7 @@ const TermsPageWrapper = () => {
     >
      
         <Typography my={2} variant="h1">
-          شرایط استفاده از گالری ساعت افشاری
+          شرایط استفاده از گالری ساعت Vinesh
         </Typography>
 
         {terms.map((item, index) => (

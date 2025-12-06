@@ -192,7 +192,7 @@ const ProductDetailsPageWrapper = ({ slug }) => {
   return (
     <PageContainer
       breadcrumbs={[
-        { name: "گالری ساعت افشاری", path: "/" },
+        { name: "گالری ساعت Vinesh", path: "/" },
         { name: "همه محصولات", path: "/products" },
         {
           name: product?.categories?.[0].name,
