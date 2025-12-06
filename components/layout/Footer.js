@@ -52,7 +52,7 @@ export default function Footer() {
     } else if (customer) {
       dispatch(getCustomerCart(customer));
     } else {
-      dispatch(createCart());
+      dispatch(createCart({products: [], price: {}}));
     }
   }, [
     // categories,
