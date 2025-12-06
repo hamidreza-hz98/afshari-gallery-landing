@@ -84,13 +84,13 @@ export async function generateMetadata() {
 export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
-       <Head>
+       {/* <Head>
         <link rel="manifest" href="/images/favicon/manifest.json" />
         <meta
           name="msapplication-TileImage"
           content="/images/favicon/ms-icon-144x144.png"
         />
-      </Head>
+      </Head> */}
 
       <body>
         <StoreProvider>
