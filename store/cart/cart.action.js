@@ -60,6 +60,8 @@ export const createCart = createAsyncThunk(
         path: "/",
         sameSite: "lax",
       });
+
+      return data
     } catch (error) {
       return rejectWithValue(error.message);
     }

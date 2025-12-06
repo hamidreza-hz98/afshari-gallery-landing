@@ -54,7 +54,7 @@ const PrimaryProductCard = ({ product }) => {
     try {
       const { message } = await dispatch(
         updateCart({
-          _id: cart._id,
+          _id: cart._id || null,
           options: {
             customerId: customer || null,
             action: "add",
@@ -68,7 +68,8 @@ const PrimaryProductCard = ({ product }) => {
         autoHideDuration: 3000,
       });
     } catch (error) {
-      notifications.show(error, {
+      
+      notifications.show(error || error.message, {
         severity: "error",
         autoHideDuration: 3000,
       });
