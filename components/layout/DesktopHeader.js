@@ -15,15 +15,15 @@ import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import SearchIcon from "@mui/icons-material/Search";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { selectCategories } from "@/store/category/category.selector";
+import { selectCategories, selectCategoryLoading } from "@/store/category/category.selector";
 import Loader from "../common/Loader";
-import { selectSettings } from "@/store/settings/settings.selector";
+import { selectSettings, selectSettingsLoading } from "@/store/settings/settings.selector";
 import Image from "next/image";
 import { setFilePath } from "@/lib/media";
 import routes from "@/constants/landing.routes";
 import SearchDialog from "../drawers/SearchDialog";
 import { useRouter, useSearchParams } from "next/navigation";
-import { selectCart } from "@/store/cart/cart.selector";
+import { selectCart, selectCartLoading } from "@/store/cart/cart.selector";
 import { toPersian } from "@/lib/number";
 import nookies from "nookies";
 import AuthenticationDrawer from "../drawers/AuthenticationDrawer";
@@ -35,6 +35,9 @@ export default function DesktopHeader() {
   const { categories } = useSelector(selectCategories);
   const { general } = useSelector(selectSettings) || {};
   const cart = useSelector(selectCart);
+  const cartLoading = useSelector(selectCartLoading);
+  const settingsLoading = useSelector(selectSettingsLoading)
+  const categoryLoading = useSelector(selectCategoryLoading)
 
   const { token, customer } = nookies.get();
 
@@ -51,7 +54,7 @@ export default function DesktopHeader() {
     }
   };
 
-  if (!categories || !general || !cart?.products || !cart?.products?.length === 0) {
+  if (categoryLoading || settingsLoading || cartLoading) {
     return <Loader />;
   }
 
@@ -173,7 +176,7 @@ export default function DesktopHeader() {
             >
               <Badge
                 badgeContent={toPersian(cart?.products?.length)}
-                invisible={cart?.products?.length === 0}
+                invisible={ !cart?.products || cart?.products?.length === 0}
                 color="primary"
               >
                 <ShoppingCartIcon />

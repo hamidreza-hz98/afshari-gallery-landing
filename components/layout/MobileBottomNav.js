@@ -7,7 +7,7 @@ import routes from "@/constants/landing.routes";
 import nookies from "nookies";
 import AuthenticationDrawer from "../drawers/AuthenticationDrawer";
 import { useSelector } from "react-redux";
-import { selectCart } from "@/store/cart/cart.selector";
+import { selectCart, selectCartLoading } from "@/store/cart/cart.selector";
 import Loader from "../common/Loader";
 import { toPersian } from "@/lib/number";
 
@@ -19,6 +19,7 @@ export default function MobileBottomNav() {
   const [value, setValue] = useState(0);
 
     const cart = useSelector(selectCart);
+    const cartLoading = useSelector(selectCartLoading)
   
   const { token, customer } = nookies.get();
 
@@ -53,7 +54,7 @@ export default function MobileBottomNav() {
     );
   };
 
-  if(!cart?.products || !cart?.products?.length === 0){
+  if(cartLoading){
     return <Loader />
   }
 
